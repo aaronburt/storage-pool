@@ -8,8 +8,7 @@ const { server_port, server_name, server_scheme } = process.env;
 app.use('/download', express.static('src/storage-pool'));
 
 app.post('/upload', upload.single('file'), (req, res) => { 
-
-    const wd = req.file.destination.split('\\');
+    const wd = req.file.destination.split('/');
     const last = wd[wd.length - 1];
     return res.json({ "filename": `${server_scheme}://${server_name}/download/${last}/${req.file.filename}` }) 
 });
