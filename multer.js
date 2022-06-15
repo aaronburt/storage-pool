@@ -3,7 +3,7 @@ const path = require('path');
 const { mkdirSync } = require('fs');
 
 const upload = multer({    
-    limits: { fileSize: 25000000 },
+    limits: { fileSize: 50000000 }, //50MB
     storage: multer.diskStorage({
         destination: (req, file, cb) => {
             const currentPath = path.join(__dirname, 'src', 'storage-pool', `${Date.now()}`);
